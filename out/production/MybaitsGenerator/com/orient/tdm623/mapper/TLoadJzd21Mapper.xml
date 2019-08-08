@@ -1,0 +1,834 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.orient.tdm623.mapper.TLoadJzd21Mapper">
+  <resultMap id="BaseResultMap" type="com.orient.tdm623.pojo.TLoadJzd21">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="SYS_DATE_TIME" jdbcType="TIMESTAMP" property="sysDateTime" />
+    <result column="SYS_USERNAME" jdbcType="VARCHAR" property="sysUsername" />
+    <result column="SYS_IS_DELETE" jdbcType="DECIMAL" property="sysIsDelete" />
+    <result column="SYS_SECRECY" jdbcType="VARCHAR" property="sysSecrecy" />
+    <result column="SYS_SCHEMA" jdbcType="VARCHAR" property="sysSchema" />
+    <result column="SYS_OPERATE" jdbcType="VARCHAR" property="sysOperate" />
+    <result column="SYS_FLOW" jdbcType="VARCHAR" property="sysFlow" />
+    <result column="C_ZDT_BH_3319" jdbcType="VARCHAR" property="cZdtBh3319" />
+    <result column="C_COORDINATE_X_3319" jdbcType="VARCHAR" property="cCoordinateX3319" />
+    <result column="C_COORDINATE_Z_3319" jdbcType="VARCHAR" property="cCoordinateZ3319" />
+    <result column="C_COORDINATE_Y_3319" jdbcType="VARCHAR" property="cCoordinateY3319" />
+    <result column="C_LOADNODE_BH_3319" jdbcType="VARCHAR" property="cLoadnodeBh3319" />
+    <result column="C_LOAD_XS_3319" jdbcType="VARCHAR" property="cLoadXs3319" />
+    <result column="T_TEST_GK_21_ID" jdbcType="VARCHAR" property="tTestGk21Id" />
+    <result column="C_FORCE_X_3319" jdbcType="VARCHAR" property="cForceX3319" />
+    <result column="C_FORCE_Y_3319" jdbcType="VARCHAR" property="cForceY3319" />
+    <result column="C_FORCE_Z_3319" jdbcType="VARCHAR" property="cForceZ3319" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ID, SYS_DATE_TIME, SYS_USERNAME, SYS_IS_DELETE, SYS_SECRECY, SYS_SCHEMA, SYS_OPERATE, 
+    SYS_FLOW, C_ZDT_BH_3319, C_COORDINATE_X_3319, C_COORDINATE_Z_3319, C_COORDINATE_Y_3319, 
+    C_LOADNODE_BH_3319, C_LOAD_XS_3319, T_TEST_GK_21_ID, C_FORCE_X_3319, C_FORCE_Y_3319, 
+    C_FORCE_Z_3319
+  </sql>
+  <select id="selectByExample" parameterType="com.orient.tdm623.pojo.TLoadJzd21Example" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from T_LOAD_JZD_21
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from T_LOAD_JZD_21
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from T_LOAD_JZD_21
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.orient.tdm623.pojo.TLoadJzd21Example">
+    delete from T_LOAD_JZD_21
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.orient.tdm623.pojo.TLoadJzd21">
+    insert into T_LOAD_JZD_21 (ID, SYS_DATE_TIME, SYS_USERNAME, 
+      SYS_IS_DELETE, SYS_SECRECY, SYS_SCHEMA, 
+      SYS_OPERATE, SYS_FLOW, C_ZDT_BH_3319, 
+      C_COORDINATE_X_3319, C_COORDINATE_Z_3319, C_COORDINATE_Y_3319, 
+      C_LOADNODE_BH_3319, C_LOAD_XS_3319, T_TEST_GK_21_ID, 
+      C_FORCE_X_3319, C_FORCE_Y_3319, C_FORCE_Z_3319
+      )
+    values (#{id,jdbcType=VARCHAR}, #{sysDateTime,jdbcType=TIMESTAMP}, #{sysUsername,jdbcType=VARCHAR}, 
+      #{sysIsDelete,jdbcType=DECIMAL}, #{sysSecrecy,jdbcType=VARCHAR}, #{sysSchema,jdbcType=VARCHAR}, 
+      #{sysOperate,jdbcType=VARCHAR}, #{sysFlow,jdbcType=VARCHAR}, #{cZdtBh3319,jdbcType=VARCHAR}, 
+      #{cCoordinateX3319,jdbcType=VARCHAR}, #{cCoordinateZ3319,jdbcType=VARCHAR}, #{cCoordinateY3319,jdbcType=VARCHAR}, 
+      #{cLoadnodeBh3319,jdbcType=VARCHAR}, #{cLoadXs3319,jdbcType=VARCHAR}, #{tTestGk21Id,jdbcType=VARCHAR}, 
+      #{cForceX3319,jdbcType=VARCHAR}, #{cForceY3319,jdbcType=VARCHAR}, #{cForceZ3319,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.orient.tdm623.pojo.TLoadJzd21">
+    insert into T_LOAD_JZD_21
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="sysDateTime != null">
+        SYS_DATE_TIME,
+      </if>
+      <if test="sysUsername != null">
+        SYS_USERNAME,
+      </if>
+      <if test="sysIsDelete != null">
+        SYS_IS_DELETE,
+      </if>
+      <if test="sysSecrecy != null">
+        SYS_SECRECY,
+      </if>
+      <if test="sysSchema != null">
+        SYS_SCHEMA,
+      </if>
+      <if test="sysOperate != null">
+        SYS_OPERATE,
+      </if>
+      <if test="sysFlow != null">
+        SYS_FLOW,
+      </if>
+      <if test="cZdtBh3319 != null">
+        C_ZDT_BH_3319,
+      </if>
+      <if test="cCoordinateX3319 != null">
+        C_COORDINATE_X_3319,
+      </if>
+      <if test="cCoordinateZ3319 != null">
+        C_COORDINATE_Z_3319,
+      </if>
+      <if test="cCoordinateY3319 != null">
+        C_COORDINATE_Y_3319,
+      </if>
+      <if test="cLoadnodeBh3319 != null">
+        C_LOADNODE_BH_3319,
+      </if>
+      <if test="cLoadXs3319 != null">
+        C_LOAD_XS_3319,
+      </if>
+      <if test="tTestGk21Id != null">
+        T_TEST_GK_21_ID,
+      </if>
+      <if test="cForceX3319 != null">
+        C_FORCE_X_3319,
+      </if>
+      <if test="cForceY3319 != null">
+        C_FORCE_Y_3319,
+      </if>
+      <if test="cForceZ3319 != null">
+        C_FORCE_Z_3319,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="sysDateTime != null">
+        #{sysDateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sysUsername != null">
+        #{sysUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="sysIsDelete != null">
+        #{sysIsDelete,jdbcType=DECIMAL},
+      </if>
+      <if test="sysSecrecy != null">
+        #{sysSecrecy,jdbcType=VARCHAR},
+      </if>
+      <if test="sysSchema != null">
+        #{sysSchema,jdbcType=VARCHAR},
+      </if>
+      <if test="sysOperate != null">
+        #{sysOperate,jdbcType=VARCHAR},
+      </if>
+      <if test="sysFlow != null">
+        #{sysFlow,jdbcType=VARCHAR},
+      </if>
+      <if test="cZdtBh3319 != null">
+        #{cZdtBh3319,jdbcType=VARCHAR},
+      </if>
+      <if test="cCoordinateX3319 != null">
+        #{cCoordinateX3319,jdbcType=VARCHAR},
+      </if>
+      <if test="cCoordinateZ3319 != null">
+        #{cCoordinateZ3319,jdbcType=VARCHAR},
+      </if>
+      <if test="cCoordinateY3319 != null">
+        #{cCoordinateY3319,jdbcType=VARCHAR},
+      </if>
+      <if test="cLoadnodeBh3319 != null">
+        #{cLoadnodeBh3319,jdbcType=VARCHAR},
+      </if>
+      <if test="cLoadXs3319 != null">
+        #{cLoadXs3319,jdbcType=VARCHAR},
+      </if>
+      <if test="tTestGk21Id != null">
+        #{tTestGk21Id,jdbcType=VARCHAR},
+      </if>
+      <if test="cForceX3319 != null">
+        #{cForceX3319,jdbcType=VARCHAR},
+      </if>
+      <if test="cForceY3319 != null">
+        #{cForceY3319,jdbcType=VARCHAR},
+      </if>
+      <if test="cForceZ3319 != null">
+        #{cForceZ3319,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.orient.tdm623.pojo.TLoadJzd21Example" resultType="java.lang.Long">
+    select count(*) from T_LOAD_JZD_21
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update T_LOAD_JZD_21
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sysDateTime != null">
+        SYS_DATE_TIME = #{record.sysDateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.sysUsername != null">
+        SYS_USERNAME = #{record.sysUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sysIsDelete != null">
+        SYS_IS_DELETE = #{record.sysIsDelete,jdbcType=DECIMAL},
+      </if>
+      <if test="record.sysSecrecy != null">
+        SYS_SECRECY = #{record.sysSecrecy,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sysSchema != null">
+        SYS_SCHEMA = #{record.sysSchema,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sysOperate != null">
+        SYS_OPERATE = #{record.sysOperate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sysFlow != null">
+        SYS_FLOW = #{record.sysFlow,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cZdtBh3319 != null">
+        C_ZDT_BH_3319 = #{record.cZdtBh3319,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cCoordinateX3319 != null">
+        C_COORDINATE_X_3319 = #{record.cCoordinateX3319,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cCoordinateZ3319 != null">
+        C_COORDINATE_Z_3319 = #{record.cCoordinateZ3319,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cCoordinateY3319 != null">
+        C_COORDINATE_Y_3319 = #{record.cCoordinateY3319,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cLoadnodeBh3319 != null">
+        C_LOADNODE_BH_3319 = #{record.cLoadnodeBh3319,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cLoadXs3319 != null">
+        C_LOAD_XS_3319 = #{record.cLoadXs3319,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tTestGk21Id != null">
+        T_TEST_GK_21_ID = #{record.tTestGk21Id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cForceX3319 != null">
+        C_FORCE_X_3319 = #{record.cForceX3319,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cForceY3319 != null">
+        C_FORCE_Y_3319 = #{record.cForceY3319,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cForceZ3319 != null">
+        C_FORCE_Z_3319 = #{record.cForceZ3319,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update T_LOAD_JZD_21
+    set ID = #{record.id,jdbcType=VARCHAR},
+      SYS_DATE_TIME = #{record.sysDateTime,jdbcType=TIMESTAMP},
+      SYS_USERNAME = #{record.sysUsername,jdbcType=VARCHAR},
+      SYS_IS_DELETE = #{record.sysIsDelete,jdbcType=DECIMAL},
+      SYS_SECRECY = #{record.sysSecrecy,jdbcType=VARCHAR},
+      SYS_SCHEMA = #{record.sysSchema,jdbcType=VARCHAR},
+      SYS_OPERATE = #{record.sysOperate,jdbcType=VARCHAR},
+      SYS_FLOW = #{record.sysFlow,jdbcType=VARCHAR},
+      C_ZDT_BH_3319 = #{record.cZdtBh3319,jdbcType=VARCHAR},
+      C_COORDINATE_X_3319 = #{record.cCoordinateX3319,jdbcType=VARCHAR},
+      C_COORDINATE_Z_3319 = #{record.cCoordinateZ3319,jdbcType=VARCHAR},
+      C_COORDINATE_Y_3319 = #{record.cCoordinateY3319,jdbcType=VARCHAR},
+      C_LOADNODE_BH_3319 = #{record.cLoadnodeBh3319,jdbcType=VARCHAR},
+      C_LOAD_XS_3319 = #{record.cLoadXs3319,jdbcType=VARCHAR},
+      T_TEST_GK_21_ID = #{record.tTestGk21Id,jdbcType=VARCHAR},
+      C_FORCE_X_3319 = #{record.cForceX3319,jdbcType=VARCHAR},
+      C_FORCE_Y_3319 = #{record.cForceY3319,jdbcType=VARCHAR},
+      C_FORCE_Z_3319 = #{record.cForceZ3319,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.orient.tdm623.pojo.TLoadJzd21">
+    update T_LOAD_JZD_21
+    <set>
+      <if test="sysDateTime != null">
+        SYS_DATE_TIME = #{sysDateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sysUsername != null">
+        SYS_USERNAME = #{sysUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="sysIsDelete != null">
+        SYS_IS_DELETE = #{sysIsDelete,jdbcType=DECIMAL},
+      </if>
+      <if test="sysSecrecy != null">
+        SYS_SECRECY = #{sysSecrecy,jdbcType=VARCHAR},
+      </if>
+      <if test="sysSchema != null">
+        SYS_SCHEMA = #{sysSchema,jdbcType=VARCHAR},
+      </if>
+      <if test="sysOperate != null">
+        SYS_OPERATE = #{sysOperate,jdbcType=VARCHAR},
+      </if>
+      <if test="sysFlow != null">
+        SYS_FLOW = #{sysFlow,jdbcType=VARCHAR},
+      </if>
+      <if test="cZdtBh3319 != null">
+        C_ZDT_BH_3319 = #{cZdtBh3319,jdbcType=VARCHAR},
+      </if>
+      <if test="cCoordinateX3319 != null">
+        C_COORDINATE_X_3319 = #{cCoordinateX3319,jdbcType=VARCHAR},
+      </if>
+      <if test="cCoordinateZ3319 != null">
+        C_COORDINATE_Z_3319 = #{cCoordinateZ3319,jdbcType=VARCHAR},
+      </if>
+      <if test="cCoordinateY3319 != null">
+        C_COORDINATE_Y_3319 = #{cCoordinateY3319,jdbcType=VARCHAR},
+      </if>
+      <if test="cLoadnodeBh3319 != null">
+        C_LOADNODE_BH_3319 = #{cLoadnodeBh3319,jdbcType=VARCHAR},
+      </if>
+      <if test="cLoadXs3319 != null">
+        C_LOAD_XS_3319 = #{cLoadXs3319,jdbcType=VARCHAR},
+      </if>
+      <if test="tTestGk21Id != null">
+        T_TEST_GK_21_ID = #{tTestGk21Id,jdbcType=VARCHAR},
+      </if>
+      <if test="cForceX3319 != null">
+        C_FORCE_X_3319 = #{cForceX3319,jdbcType=VARCHAR},
+      </if>
+      <if test="cForceY3319 != null">
+        C_FORCE_Y_3319 = #{cForceY3319,jdbcType=VARCHAR},
+      </if>
+      <if test="cForceZ3319 != null">
+        C_FORCE_Z_3319 = #{cForceZ3319,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.orient.tdm623.pojo.TLoadJzd21">
+    update T_LOAD_JZD_21
+    set SYS_DATE_TIME = #{sysDateTime,jdbcType=TIMESTAMP},
+      SYS_USERNAME = #{sysUsername,jdbcType=VARCHAR},
+      SYS_IS_DELETE = #{sysIsDelete,jdbcType=DECIMAL},
+      SYS_SECRECY = #{sysSecrecy,jdbcType=VARCHAR},
+      SYS_SCHEMA = #{sysSchema,jdbcType=VARCHAR},
+      SYS_OPERATE = #{sysOperate,jdbcType=VARCHAR},
+      SYS_FLOW = #{sysFlow,jdbcType=VARCHAR},
+      C_ZDT_BH_3319 = #{cZdtBh3319,jdbcType=VARCHAR},
+      C_COORDINATE_X_3319 = #{cCoordinateX3319,jdbcType=VARCHAR},
+      C_COORDINATE_Z_3319 = #{cCoordinateZ3319,jdbcType=VARCHAR},
+      C_COORDINATE_Y_3319 = #{cCoordinateY3319,jdbcType=VARCHAR},
+      C_LOADNODE_BH_3319 = #{cLoadnodeBh3319,jdbcType=VARCHAR},
+      C_LOAD_XS_3319 = #{cLoadXs3319,jdbcType=VARCHAR},
+      T_TEST_GK_21_ID = #{tTestGk21Id,jdbcType=VARCHAR},
+      C_FORCE_X_3319 = #{cForceX3319,jdbcType=VARCHAR},
+      C_FORCE_Y_3319 = #{cForceY3319,jdbcType=VARCHAR},
+      C_FORCE_Z_3319 = #{cForceZ3319,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.orient.tdm623.pojo.TLoadJzd21">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="SYS_DATE_TIME" jdbcType="TIMESTAMP" property="sysDateTime" />
+    <result column="SYS_USERNAME" jdbcType="VARCHAR" property="sysUsername" />
+    <result column="SYS_IS_DELETE" jdbcType="DECIMAL" property="sysIsDelete" />
+    <result column="SYS_SECRECY" jdbcType="VARCHAR" property="sysSecrecy" />
+    <result column="SYS_SCHEMA" jdbcType="VARCHAR" property="sysSchema" />
+    <result column="SYS_OPERATE" jdbcType="VARCHAR" property="sysOperate" />
+    <result column="SYS_FLOW" jdbcType="VARCHAR" property="sysFlow" />
+    <result column="C_ZDT_BH_3319" jdbcType="VARCHAR" property="cZdtBh3319" />
+    <result column="C_COORDINATE_X_3319" jdbcType="VARCHAR" property="cCoordinateX3319" />
+    <result column="C_COORDINATE_Z_3319" jdbcType="VARCHAR" property="cCoordinateZ3319" />
+    <result column="C_COORDINATE_Y_3319" jdbcType="VARCHAR" property="cCoordinateY3319" />
+    <result column="C_LOADNODE_BH_3319" jdbcType="VARCHAR" property="cLoadnodeBh3319" />
+    <result column="C_LOAD_XS_3319" jdbcType="VARCHAR" property="cLoadXs3319" />
+    <result column="T_TEST_GK_21_ID" jdbcType="VARCHAR" property="tTestGk21Id" />
+    <result column="C_FORCE_X_3319" jdbcType="VARCHAR" property="cForceX3319" />
+    <result column="C_FORCE_Y_3319" jdbcType="VARCHAR" property="cForceY3319" />
+    <result column="C_FORCE_Z_3319" jdbcType="VARCHAR" property="cForceZ3319" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ID, SYS_DATE_TIME, SYS_USERNAME, SYS_IS_DELETE, SYS_SECRECY, SYS_SCHEMA, SYS_OPERATE, 
+    SYS_FLOW, C_ZDT_BH_3319, C_COORDINATE_X_3319, C_COORDINATE_Z_3319, C_COORDINATE_Y_3319, 
+    C_LOADNODE_BH_3319, C_LOAD_XS_3319, T_TEST_GK_21_ID, C_FORCE_X_3319, C_FORCE_Y_3319, 
+    C_FORCE_Z_3319
+  </sql>
+  <select id="selectByExample" parameterType="com.orient.tdm623.pojo.TLoadJzd21Example" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from T_LOAD_JZD_21
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from T_LOAD_JZD_21
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from T_LOAD_JZD_21
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.orient.tdm623.pojo.TLoadJzd21Example">
+    delete from T_LOAD_JZD_21
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.orient.tdm623.pojo.TLoadJzd21">
+    insert into T_LOAD_JZD_21 (ID, SYS_DATE_TIME, SYS_USERNAME, 
+      SYS_IS_DELETE, SYS_SECRECY, SYS_SCHEMA, 
+      SYS_OPERATE, SYS_FLOW, C_ZDT_BH_3319, 
+      C_COORDINATE_X_3319, C_COORDINATE_Z_3319, C_COORDINATE_Y_3319, 
+      C_LOADNODE_BH_3319, C_LOAD_XS_3319, T_TEST_GK_21_ID, 
+      C_FORCE_X_3319, C_FORCE_Y_3319, C_FORCE_Z_3319
+      )
+    values (#{id,jdbcType=VARCHAR}, #{sysDateTime,jdbcType=TIMESTAMP}, #{sysUsername,jdbcType=VARCHAR}, 
+      #{sysIsDelete,jdbcType=DECIMAL}, #{sysSecrecy,jdbcType=VARCHAR}, #{sysSchema,jdbcType=VARCHAR}, 
+      #{sysOperate,jdbcType=VARCHAR}, #{sysFlow,jdbcType=VARCHAR}, #{cZdtBh3319,jdbcType=VARCHAR}, 
+      #{cCoordinateX3319,jdbcType=VARCHAR}, #{cCoordinateZ3319,jdbcType=VARCHAR}, #{cCoordinateY3319,jdbcType=VARCHAR}, 
+      #{cLoadnodeBh3319,jdbcType=VARCHAR}, #{cLoadXs3319,jdbcType=VARCHAR}, #{tTestGk21Id,jdbcType=VARCHAR}, 
+      #{cForceX3319,jdbcType=VARCHAR}, #{cForceY3319,jdbcType=VARCHAR}, #{cForceZ3319,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.orient.tdm623.pojo.TLoadJzd21">
+    insert into T_LOAD_JZD_21
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="sysDateTime != null">
+        SYS_DATE_TIME,
+      </if>
+      <if test="sysUsername != null">
+        SYS_USERNAME,
+      </if>
+      <if test="sysIsDelete != null">
+        SYS_IS_DELETE,
+      </if>
+      <if test="sysSecrecy != null">
+        SYS_SECRECY,
+      </if>
+      <if test="sysSchema != null">
+        SYS_SCHEMA,
+      </if>
+      <if test="sysOperate != null">
+        SYS_OPERATE,
+      </if>
+      <if test="sysFlow != null">
+        SYS_FLOW,
+      </if>
+      <if test="cZdtBh3319 != null">
+        C_ZDT_BH_3319,
+      </if>
+      <if test="cCoordinateX3319 != null">
+        C_COORDINATE_X_3319,
+      </if>
+      <if test="cCoordinateZ3319 != null">
+        C_COORDINATE_Z_3319,
+      </if>
+      <if test="cCoordinateY3319 != null">
+        C_COORDINATE_Y_3319,
+      </if>
+      <if test="cLoadnodeBh3319 != null">
+        C_LOADNODE_BH_3319,
+      </if>
+      <if test="cLoadXs3319 != null">
+        C_LOAD_XS_3319,
+      </if>
+      <if test="tTestGk21Id != null">
+        T_TEST_GK_21_ID,
+      </if>
+      <if test="cForceX3319 != null">
+        C_FORCE_X_3319,
+      </if>
+      <if test="cForceY3319 != null">
+        C_FORCE_Y_3319,
+      </if>
+      <if test="cForceZ3319 != null">
+        C_FORCE_Z_3319,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="sysDateTime != null">
+        #{sysDateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sysUsername != null">
+        #{sysUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="sysIsDelete != null">
+        #{sysIsDelete,jdbcType=DECIMAL},
+      </if>
+      <if test="sysSecrecy != null">
+        #{sysSecrecy,jdbcType=VARCHAR},
+      </if>
+      <if test="sysSchema != null">
+        #{sysSchema,jdbcType=VARCHAR},
+      </if>
+      <if test="sysOperate != null">
+        #{sysOperate,jdbcType=VARCHAR},
+      </if>
+      <if test="sysFlow != null">
+        #{sysFlow,jdbcType=VARCHAR},
+      </if>
+      <if test="cZdtBh3319 != null">
+        #{cZdtBh3319,jdbcType=VARCHAR},
+      </if>
+      <if test="cCoordinateX3319 != null">
+        #{cCoordinateX3319,jdbcType=VARCHAR},
+      </if>
+      <if test="cCoordinateZ3319 != null">
+        #{cCoordinateZ3319,jdbcType=VARCHAR},
+      </if>
+      <if test="cCoordinateY3319 != null">
+        #{cCoordinateY3319,jdbcType=VARCHAR},
+      </if>
+      <if test="cLoadnodeBh3319 != null">
+        #{cLoadnodeBh3319,jdbcType=VARCHAR},
+      </if>
+      <if test="cLoadXs3319 != null">
+        #{cLoadXs3319,jdbcType=VARCHAR},
+      </if>
+      <if test="tTestGk21Id != null">
+        #{tTestGk21Id,jdbcType=VARCHAR},
+      </if>
+      <if test="cForceX3319 != null">
+        #{cForceX3319,jdbcType=VARCHAR},
+      </if>
+      <if test="cForceY3319 != null">
+        #{cForceY3319,jdbcType=VARCHAR},
+      </if>
+      <if test="cForceZ3319 != null">
+        #{cForceZ3319,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.orient.tdm623.pojo.TLoadJzd21Example" resultType="java.lang.Long">
+    select count(*) from T_LOAD_JZD_21
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update T_LOAD_JZD_21
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sysDateTime != null">
+        SYS_DATE_TIME = #{record.sysDateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.sysUsername != null">
+        SYS_USERNAME = #{record.sysUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sysIsDelete != null">
+        SYS_IS_DELETE = #{record.sysIsDelete,jdbcType=DECIMAL},
+      </if>
+      <if test="record.sysSecrecy != null">
+        SYS_SECRECY = #{record.sysSecrecy,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sysSchema != null">
+        SYS_SCHEMA = #{record.sysSchema,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sysOperate != null">
+        SYS_OPERATE = #{record.sysOperate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sysFlow != null">
+        SYS_FLOW = #{record.sysFlow,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cZdtBh3319 != null">
+        C_ZDT_BH_3319 = #{record.cZdtBh3319,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cCoordinateX3319 != null">
+        C_COORDINATE_X_3319 = #{record.cCoordinateX3319,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cCoordinateZ3319 != null">
+        C_COORDINATE_Z_3319 = #{record.cCoordinateZ3319,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cCoordinateY3319 != null">
+        C_COORDINATE_Y_3319 = #{record.cCoordinateY3319,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cLoadnodeBh3319 != null">
+        C_LOADNODE_BH_3319 = #{record.cLoadnodeBh3319,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cLoadXs3319 != null">
+        C_LOAD_XS_3319 = #{record.cLoadXs3319,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tTestGk21Id != null">
+        T_TEST_GK_21_ID = #{record.tTestGk21Id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cForceX3319 != null">
+        C_FORCE_X_3319 = #{record.cForceX3319,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cForceY3319 != null">
+        C_FORCE_Y_3319 = #{record.cForceY3319,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cForceZ3319 != null">
+        C_FORCE_Z_3319 = #{record.cForceZ3319,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update T_LOAD_JZD_21
+    set ID = #{record.id,jdbcType=VARCHAR},
+      SYS_DATE_TIME = #{record.sysDateTime,jdbcType=TIMESTAMP},
+      SYS_USERNAME = #{record.sysUsername,jdbcType=VARCHAR},
+      SYS_IS_DELETE = #{record.sysIsDelete,jdbcType=DECIMAL},
+      SYS_SECRECY = #{record.sysSecrecy,jdbcType=VARCHAR},
+      SYS_SCHEMA = #{record.sysSchema,jdbcType=VARCHAR},
+      SYS_OPERATE = #{record.sysOperate,jdbcType=VARCHAR},
+      SYS_FLOW = #{record.sysFlow,jdbcType=VARCHAR},
+      C_ZDT_BH_3319 = #{record.cZdtBh3319,jdbcType=VARCHAR},
+      C_COORDINATE_X_3319 = #{record.cCoordinateX3319,jdbcType=VARCHAR},
+      C_COORDINATE_Z_3319 = #{record.cCoordinateZ3319,jdbcType=VARCHAR},
+      C_COORDINATE_Y_3319 = #{record.cCoordinateY3319,jdbcType=VARCHAR},
+      C_LOADNODE_BH_3319 = #{record.cLoadnodeBh3319,jdbcType=VARCHAR},
+      C_LOAD_XS_3319 = #{record.cLoadXs3319,jdbcType=VARCHAR},
+      T_TEST_GK_21_ID = #{record.tTestGk21Id,jdbcType=VARCHAR},
+      C_FORCE_X_3319 = #{record.cForceX3319,jdbcType=VARCHAR},
+      C_FORCE_Y_3319 = #{record.cForceY3319,jdbcType=VARCHAR},
+      C_FORCE_Z_3319 = #{record.cForceZ3319,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.orient.tdm623.pojo.TLoadJzd21">
+    update T_LOAD_JZD_21
+    <set>
+      <if test="sysDateTime != null">
+        SYS_DATE_TIME = #{sysDateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sysUsername != null">
+        SYS_USERNAME = #{sysUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="sysIsDelete != null">
+        SYS_IS_DELETE = #{sysIsDelete,jdbcType=DECIMAL},
+      </if>
+      <if test="sysSecrecy != null">
+        SYS_SECRECY = #{sysSecrecy,jdbcType=VARCHAR},
+      </if>
+      <if test="sysSchema != null">
+        SYS_SCHEMA = #{sysSchema,jdbcType=VARCHAR},
+      </if>
+      <if test="sysOperate != null">
+        SYS_OPERATE = #{sysOperate,jdbcType=VARCHAR},
+      </if>
+      <if test="sysFlow != null">
+        SYS_FLOW = #{sysFlow,jdbcType=VARCHAR},
+      </if>
+      <if test="cZdtBh3319 != null">
+        C_ZDT_BH_3319 = #{cZdtBh3319,jdbcType=VARCHAR},
+      </if>
+      <if test="cCoordinateX3319 != null">
+        C_COORDINATE_X_3319 = #{cCoordinateX3319,jdbcType=VARCHAR},
+      </if>
+      <if test="cCoordinateZ3319 != null">
+        C_COORDINATE_Z_3319 = #{cCoordinateZ3319,jdbcType=VARCHAR},
+      </if>
+      <if test="cCoordinateY3319 != null">
+        C_COORDINATE_Y_3319 = #{cCoordinateY3319,jdbcType=VARCHAR},
+      </if>
+      <if test="cLoadnodeBh3319 != null">
+        C_LOADNODE_BH_3319 = #{cLoadnodeBh3319,jdbcType=VARCHAR},
+      </if>
+      <if test="cLoadXs3319 != null">
+        C_LOAD_XS_3319 = #{cLoadXs3319,jdbcType=VARCHAR},
+      </if>
+      <if test="tTestGk21Id != null">
+        T_TEST_GK_21_ID = #{tTestGk21Id,jdbcType=VARCHAR},
+      </if>
+      <if test="cForceX3319 != null">
+        C_FORCE_X_3319 = #{cForceX3319,jdbcType=VARCHAR},
+      </if>
+      <if test="cForceY3319 != null">
+        C_FORCE_Y_3319 = #{cForceY3319,jdbcType=VARCHAR},
+      </if>
+      <if test="cForceZ3319 != null">
+        C_FORCE_Z_3319 = #{cForceZ3319,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.orient.tdm623.pojo.TLoadJzd21">
+    update T_LOAD_JZD_21
+    set SYS_DATE_TIME = #{sysDateTime,jdbcType=TIMESTAMP},
+      SYS_USERNAME = #{sysUsername,jdbcType=VARCHAR},
+      SYS_IS_DELETE = #{sysIsDelete,jdbcType=DECIMAL},
+      SYS_SECRECY = #{sysSecrecy,jdbcType=VARCHAR},
+      SYS_SCHEMA = #{sysSchema,jdbcType=VARCHAR},
+      SYS_OPERATE = #{sysOperate,jdbcType=VARCHAR},
+      SYS_FLOW = #{sysFlow,jdbcType=VARCHAR},
+      C_ZDT_BH_3319 = #{cZdtBh3319,jdbcType=VARCHAR},
+      C_COORDINATE_X_3319 = #{cCoordinateX3319,jdbcType=VARCHAR},
+      C_COORDINATE_Z_3319 = #{cCoordinateZ3319,jdbcType=VARCHAR},
+      C_COORDINATE_Y_3319 = #{cCoordinateY3319,jdbcType=VARCHAR},
+      C_LOADNODE_BH_3319 = #{cLoadnodeBh3319,jdbcType=VARCHAR},
+      C_LOAD_XS_3319 = #{cLoadXs3319,jdbcType=VARCHAR},
+      T_TEST_GK_21_ID = #{tTestGk21Id,jdbcType=VARCHAR},
+      C_FORCE_X_3319 = #{cForceX3319,jdbcType=VARCHAR},
+      C_FORCE_Y_3319 = #{cForceY3319,jdbcType=VARCHAR},
+      C_FORCE_Z_3319 = #{cForceZ3319,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>
